@@ -1,0 +1,19 @@
+service: todo-backend-sept-2020
+frameworkVersion: '2'
+
+provider:
+  name: aws
+  runtime: java8
+  region: eu-west-2
+  profile: serverless
+
+package:
+  artifact: target/hello-dev.jar
+
+functions:
+  tasks:
+    handler: com.techreturners.Handler
+    events:
+      - http:
+          path: tasks
+          method: get
